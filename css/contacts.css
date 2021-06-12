@@ -1,0 +1,91 @@
+.contacts .top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  background-color: var(--black-bg);
+}
+
+.contacts .top h1 {
+  font-family: var(--decorative-font);
+  font-size: 10vh;
+  padding: 30px 20px 50px 20px;
+  margin: 0;
+  text-align: center;
+  color: var(--white-color);
+}
+
+.contacts h2 {
+  font-size: 1.2rem;
+}
+
+.contacts .form-wrapper {
+  display: flex;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.contacts .form-wrapper .left {
+  width: 50%;
+  margin-right: 20px;
+}
+
+.contacts .form-wrapper .left p {
+  margin: 0;
+}
+
+.contacts input:not([type="submit"]), .contacts textarea {
+  max-width: 400px;
+  width: 100%;
+  margin-bottom: 5px;
+  border: none;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  background-color: var(--black-bg);
+  color: var(--white-color);
+  transition: .2s;
+  font-size: 1.3rem;
+  font-weight: 700;
+  resize: none;
+}
+
+.contacts input:not([type="submit"]):focus, .contacts textarea:focus {
+  background-color: var(--black-bg-hover);
+  outline: none;
+}
+
+.contacts .wpcf7-response-output {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  
+  .contacts input:not([type="submit"]), .contacts textarea {
+    max-width: 100%;
+  }
+
+  .contacts .form-wrapper {
+    flex-direction: column;
+    padding-top: 10px;
+  }
+
+  .contacts .form-wrapper .left {
+    margin-right: 0;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .contacts .form-wrapper .right {
+    width: 100%;
+  }
+
+}
+
+@media screen and (max-width: 425px) {
+
+  .contacts .top h1 {
+    padding: 20px 20px 40px 20px;
+    font-size: 6vh;
+  }
+  
+}

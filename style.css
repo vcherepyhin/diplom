@@ -1,0 +1,177 @@
+/* 
+Theme Name: Jeanne
+*/
+
+:root {
+  --main-color: #3cc474;
+  --main-color-transparent: #28864faa;
+  --main-color-hover: #6fd59a;
+  --black-color: #000;
+  --black-color-hover: #242424;
+  --white-color: #fff;
+  --white-color-hover: #c9c9c9;
+  --grey-color: #303030;
+  --grey-color-hover: #494949;
+  --black-bg: #111111;
+  --black-bg-hover: #212121;
+  --white-bg: #fff;
+  --main-font: 'Roboto', sans-serif;
+  --decorative-font: 'Poiret One', var(--main-font);
+}
+
+html {
+  height: 100%;
+  font-size: 14px;
+}
+
+html:first-child {
+  margin-top: 0 !important;
+}
+
+.hidden {
+  display: none;
+}
+
+body {
+  position: relative;
+  padding-bottom: 45px;
+  box-sizing: border-box;
+  min-height: 100%;
+  margin: 0;
+  font-family: var(--main-font);
+}
+
+a {
+  color: var(--black-color);
+  text-decoration: none;
+}
+
+a:visited {
+  color: var(--black-color);
+}
+
+.container {
+  max-width: 960px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.social {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 35px;
+}
+
+.social a {
+  height: 45px;
+  width: 45px;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--black-bg);
+  transition: background-color .2s;
+}
+
+.social a:hover {
+  background-color: var(--black-bg-hover);
+}
+
+.social a:focus {
+  outline: none;
+  background-color: var(--black-bg-hover);
+}
+
+#pop-up-container {
+  z-index: 10000;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: transform .3s, opacity 0.3s;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#pop-up-container .inner {
+  background-color: var(--black-bg);
+  position: relative;
+  width: 80%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#pop-up-container .inner img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+#pop-up-container .inner .close {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background-color: #0003;
+  padding: 10px;
+  color: var(--white-color);
+}
+
+#pop-up-container.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: all;
+}
+
+button.cta, input.cta, a.cta, a.cta:visited {
+  border: none;
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: var(--main-color);
+  color: var(--white-color);
+  transition: .2s;
+  font-size: 1.3rem;
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+button.cta:hover, input.cta:hover, a.cta:hover, a.cta:visited:hover {
+  background-color: var(--main-color-hover);
+}
+
+button.cta:focus, input.cta:focus, a.cta:focus, a.cta:visited:focus {
+  background-color: var(--main-color-hover);
+  outline: none;
+}
+
+.excerpt {
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.date {
+  opacity: .7;
+}
+
+img.fullscreen {
+  cursor: pointer;
+  transition: transform .2s;
+  transform: scale(1);
+}
+
+
+img.fullscreen:hover {
+  transform: scale(1.05);
+}
