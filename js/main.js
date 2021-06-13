@@ -43,25 +43,43 @@ document.addEventListener('DOMContentLoaded', () => {
   window.onscroll = () => setMenuMode();
 
 
+  // Неименованные обёртки от wordpress
+  const wraps$ = jQuery( ".album .content div, .album .content p" ); 
+  
+  wraps$.contents()
+    .filter((index, el) => (el.nodeType === 3) && (el.nodeValue && el.nodeValue.length > 1)) // Значит это текст
+    .wrap( "<p class='content-paragraph'></p>" );
+
+  wraps$
+    .filter((index, el) => {
+      const images$ = jQuery(el).children('img');
+      images$.addClass('fullscreen');
+      return images$.length > 0; // Значит в div или p есть картинки
+    })
+    .addClass('images-grid');
+
+
   // Разворачивание картинок с классом fullscreen
 
   const popUpContainer$ = jQuery('#pop-up-container');
-  const closeButton$ = jQuery(popUpContainer$).find('.close');
-  const image$ = jQuery(popUpContainer$).find('img');
+  const closeButton$ = popUpContainer$.find('.close');
+  const image$ = popUpContainer$.find('img');
   
-  jQuery(closeButton$).click(() => {
-    jQuery(popUpContainer$).removeClass('show');
+  closeButton$.click(() => {
+    popUpContainer$.removeClass('show');
+    image$.attr('src', null);
+    image$.attr('alt', null);
   });
 
   jQuery('.fullscreen').click(e => {
-    jQuery(popUpContainer$).addClass('show');
-    jQuery(image$).attr('src', e.target.src);
-    jQuery(image$).attr('alt', e.target.alt);
-    jQuery(popUpContainer$).click(e => {
+    popUpContainer$.addClass('show');
+    image$.attr('src', e.target.src);
+    image$.attr('alt', e.target.alt);
+    popUpContainer$.click(e => {
       if (e.target !== popUpContainer$[0]) { return; } // Если клик не по заднему фону
-      jQuery(popUpContainer$).removeClass('show');
-      jQuery(image$).attr('src', null);
-    jQuery(image$).attr('alt', null);
+      popUpContainer$.removeClass('show');
+      image$.attr('src', null);
+      image$.attr('alt', null);
     })
   })
 
