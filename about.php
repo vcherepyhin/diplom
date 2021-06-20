@@ -15,7 +15,7 @@
   <section class="content">
     <div class="photo"></div>
     <div class="description">
-      <p><?php echo get_userdata(1)->description; ?></p>
+      <p class="biography"><?php echo get_userdata(1)->description; ?></p>
       <p>E-mail: <?php echo get_option( 'admin_email' ); ?></p>
       <div class="social">
         <a href="https://www.instagram.com/ph.j.che/">
